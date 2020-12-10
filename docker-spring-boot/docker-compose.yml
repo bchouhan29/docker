@@ -1,0 +1,17 @@
+version: '3'
+services:
+
+   docker-spring-boot-service:
+       image: docker-spring-boot-service
+       build: 
+          context: ./
+          dockerfile: ./Dockerfile
+       ports:
+         - "9090:9090" 
+         
+   docker-spring-boot-2-service:
+       image: docker-spring-boot-2.jar
+       depends_on: 
+         - docker-spring-boot-service 
+       ports:
+         - "9091:9091"  
